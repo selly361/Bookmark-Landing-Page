@@ -1,0 +1,21 @@
+/* Colors */
+
+$white: hsl(0, 0%, 100%);
+$black: hsl(0, 0%, 0%);
+$blue-soft: hsl(231, 69%, 60%);
+$red-soft: hsl(0, 94%, 66%);
+$blue-grayish: hsl(229, 8%, 60%);
+$blue-dark: hsl(229, 31%, 21%);
+
+/* Fonts */
+
+$ff-primary: 'Rubik', sans-serif;
+
+/* Media query breakpoints */
+
+$breakpoints: (
+  xs: 375px,
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+);

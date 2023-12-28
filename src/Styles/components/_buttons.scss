@@ -1,0 +1,8 @@
+@use 'Styles/utilities' as *;
+
+
+.button {
+    height: 40px;
+    box-shadow: 0px 8px 8px -4px $blue-dark;
+    border-radius: 5px;    
+}
