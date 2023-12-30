@@ -1,16 +1,6 @@
 @use 'variables' as *;
 
-/* Visually hiding content */
-.sr-only {
-    position: absolute;
-    top: auto;
-    left: -10000px;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
 
-/* Skip to content link */
 .skip-to-content-link {
     position: fixed;
     top: 110px;
