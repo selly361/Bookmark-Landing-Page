@@ -1,0 +1,42 @@
+@use 'Styles/utilities' as *;
+
+.hero {
+  width: calc(100vw - 165px);
+  display: flex;
+  gap: 65px;
+  align-items: center;
+
+  &__article {
+    min-width: 540px;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    p {
+      opacity: 0.5;
+    }
+
+    &__buttons-container {
+      display: flex;
+      gap: 16px;
+    }
+  }
+
+  &__illustration-container {
+    position: relative;
+    height: 500px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 1000px;
+      height: 352px;
+      border-radius: 316.5px;
+      background: $blue-soft;
+      z-index: -1;
+      bottom: 0;
+      right: -500px;
+    }
+  }
+}
