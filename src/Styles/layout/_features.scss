@@ -1,5 +1,145 @@
 @use 'Styles/utilities' as *;
 
 .features {
-    padding: 0 32px;
+	$root: &;
+	padding: 0 82.5px;
+	width: 100vw;
+
+	&__article {
+		text-align: center;
+		width: max-content;
+		margin: auto;
+
+		&__heading {
+			margin-bottom: 16px;
+		}
+
+		&__body {
+			max-width: 540px;
+		}
+	}
+
+	&__tab-container {
+		width: 729px;
+		height: 49px;
+		margin: auto;
+		margin-top: 72px;
+		margin-bottom: 72px;
+
+		border-bottom: 1px solid rgba(73, 93, 207, 0.2);
+
+		&__fieldset {
+			height: 49px;
+			outline: none;
+			border: none;
+
+			display: grid;
+			grid-template-columns: repeat(3, 243px);
+			text-align: center;
+		}
+	}
+
+	&__tab-label {
+		cursor: pointer;
+		user-select: none;
+		transition: color 350ms ease-in;
+
+		&--active {
+			pointer-events: none;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				color: $red-soft;
+			}
+		}
+	}
+
+	&__content-container {
+		display: flex;
+		gap: 125px;
+		margin: auto;
+		align-items: center;
+		height: 426px;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 1000px;
+			height: 352px;
+			border-radius: 316.5px;
+			background: $blue-soft;
+			z-index: -1;
+			bottom: 0;
+			left: -500px;
+		}
+
+		&--animation {
+			#{$root}__tab-illustration {
+				animation: tabBackgroundSlide 1000ms ease-in-out;
+				backface-visibility: hidden;
+			}
+
+			#{$root}__tab-content {
+				animation: tabInfoSlide 1000ms ease-in-out;
+				backface-visibility: hidden;
+			}
+		}
+	}
+
+	&__tab-illustration {
+		min-width: 536px;
+		min-height: 346px;
+	}
+
+	&__tab-content {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		min-height: 232px;
+		max-height: 232px;
+
+		&__body {
+			margin-bottom: 16px;
+			min-height: 84px;
+		}
+	}
+
+	&__tab-bar {
+		width: 729px;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			bottom: 1px;
+			left: 0;
+			width: 243px;
+			height: 4px;
+			background-color: $red-soft;
+			transition: left 300ms ease-in-out, transform 300ms ease-in-out;
+		}
+	}
+
+	&__tab-input {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 1px;
+		height: 1px;
+		opacity: 0;
+
+		&--1:checked ~ #{$root}__tab-bar::before {
+			left: 0;
+		}
+
+		&--2:checked ~ #{$root}__tab-bar::before {
+			left: 33.34%;
+		}
+
+		&--3:checked ~ #{$root}__tab-bar::before {
+			left: 66.68%;
+		}
+	}
 }
