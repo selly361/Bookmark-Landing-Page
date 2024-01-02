@@ -1,3 +1,5 @@
+import { ITabData } from "Types"
+
 const tabsInfoData = [
 	{
 		title: 'Bookmark in one click',
@@ -16,7 +18,7 @@ const tabsInfoData = [
 	}
 ]
 
-const tabsData = [
+const tabsData: ITabData[] = [
 	{
 		index: 0,
 		idName: 'bookmarking',
