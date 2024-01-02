@@ -1,3 +1,5 @@
+@use 'Styles/utilities' as *;
+
 /* Box sizing rules */
 /* Remove default margin and padding */
 *,
@@ -11,7 +13,7 @@
 /* Set core root defaults */
 
 html:focus-within {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
 
@@ -33,6 +35,21 @@ button, a {
 ul,
 ol {
   list-style: none;
+}
+
+/* Accessibility */
+
+button,
+a
+ {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px dashed $red-soft;
+    outline-offset: 2px;
+  }
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */

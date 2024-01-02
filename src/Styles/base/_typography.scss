@@ -12,17 +12,6 @@ body {
   color: $blue-dark;
 }
 
-button,
-a {
-  &:focus {
-    outline: none;
-  }
-
-  &:focus-visible {
-    outline: 2px dashed $red-soft;
-    outline-offset: 2px;
-  }
-}
 
 a {
   font-size: 13px;
