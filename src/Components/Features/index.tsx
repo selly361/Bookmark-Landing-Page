@@ -2,7 +2,7 @@ import { tabsData } from 'Constants'
 import { useFeaturesContext } from 'Contexts'
 
 function Features() {
-	const { isChanging, handleFocus, featuresData, handleClick } = useFeaturesContext()
+	const { isChanging, handleFocus, featuresData, tabs, handleClick } = useFeaturesContext()
 
 	return (
 		<section className='features'>
@@ -16,30 +16,39 @@ function Features() {
 			</article>
 			<div className='features__tab-container'>
 				<fieldset className='features__tab-container__fieldset'>
-					{tabsData.map((tabData) => (
+					{tabs.map((tab) => (
 						<>
 							<input
 								type='radio'
 								name='tab'
-								id={tabData.idName}
-								className={`features__tab-input features__tab-input--${tabData.index + 1}`}
-								checked={tabData.isChecked} 
+								id={tab.idName}
+								className={`features__tab-input features__tab-input--${
+									tab.index + 1
+								}`}
 								onFocus={handleFocus}
 								onClick={handleClick}
-								data-index={tabData.index}
+								checked={tab.isChecked}
+								data-index={tab.index}
 							/>
 							<label
-								htmlFor={tabData.idName}
-								className={`features__tab-label ${isChanging ? 'features__tab-label--active' : ''}`}
+								htmlFor={tab.idName}
+								className={`features__tab-label ${
+									isChanging ? 'features__tab-label--active' : ''
+								}`}
 							>
-								{tabData.labelText}
+								{tab.labelText}
 							</label>
 						</>
 					))}
-				<div className='features__tab-bar'></div>
+					<div className='features__tab-bar'></div>
+					<span className='features__tab-overlay'></span>
 				</fieldset>
 			</div>
-			<div className={`features__content-container ${isChanging ? 'features__content-container--animation' : ''}`}>
+			<div
+				className={`features__content-container ${
+					isChanging ? 'features__content-container--animation' : ''
+				}`}
+			>
 				<div className='features__tab-illustration'>
 					<img src={featuresData.illustration} alt='' />
 				</div>

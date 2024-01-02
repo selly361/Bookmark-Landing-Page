@@ -1,4 +1,4 @@
-import { tabsInfoData } from 'Constants'
+import { tabsData, tabsInfoData } from 'Constants'
 import { IFeaturesContext, IFeaturesProps } from './Features.types'
 import { createContext, useContext, useEffect, useRef, useState } from 'react'
 
@@ -6,12 +6,14 @@ const FeaturesContext = createContext<IFeaturesContext>({
 	isChanging: false,
 	featuresData: tabsInfoData[0],
 	handleFocus: () => undefined,
-	handleClick: () => {}
+	handleClick: () => {},
+	tabs: tabsData
 })
 
 function FeaturesProvider({ children }: IFeaturesProps) {
 	const [isChanging, setIsChanging] = useState(false)
 	const [featuresData, setFeaturesData] = useState(tabsInfoData[0])
+	const [tabs, setTabs] = useState(tabsData)
 	const prevIndex = useRef<number>(0)
 	const isTransitionend = useRef(true)
 
@@ -33,6 +35,12 @@ function FeaturesProvider({ children }: IFeaturesProps) {
 		prevIndex.current = currIndex
 		isTransitionend.current = false
 		setIsChanging(true)
+
+		setTabs(e => e.map(tab => ({
+			...tab,
+			isChecked: tab.index === currIndex ? true : false
+		})));
+		
 
 		setTimeout(() => {
 			setIsChanging(false)
@@ -59,7 +67,7 @@ function FeaturesProvider({ children }: IFeaturesProps) {
 	}
 
 	return (
-		<FeaturesContext.Provider value={{ isChanging, featuresData, handleFocus, handleClick }}>
+		<FeaturesContext.Provider value={{ isChanging, featuresData,tabs, handleFocus, handleClick }}>
 			{children}
 		</FeaturesContext.Provider>
 	)
