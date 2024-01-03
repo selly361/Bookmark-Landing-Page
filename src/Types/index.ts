@@ -1,20 +1,31 @@
 interface ITabInfo {
-    title: string;
-    text: string;
-    illustration: string;
+	title: string
+	text: string
+	illustration: string
 }
 
 interface ITabData {
-    index: number;
-    idName: string;
-    isChecked: boolean;
-    labelText: string;
+	index: number
+	idName: string
+	isChecked: boolean
+	labelText: string
 }
 
 interface IFAQItem {
-    id: number;
-    question: string;
-    answer: string;
+	id: number
+	question: string
+	answer: string
 }
 
-export type { IFAQItem, ITabData, ITabInfo }
+interface IExtensionData {
+	id: number
+	Logo: React.FunctionComponent<
+		React.SVGProps<SVGSVGElement> & {
+			title?: string | undefined
+		}
+	>
+	title: string
+	version: string
+}
+
+export type { IFAQItem, ITabData, ITabInfo, IExtensionData }
