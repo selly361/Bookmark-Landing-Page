@@ -1,4 +1,5 @@
-import { ITabData } from "Types"
+import { ITabData } from 'Types'
+import { ChromeLogo, OperaLogo, FirefoxLogo } from 'Assets'
 
 const tabsInfoData = [
 	{
@@ -66,4 +67,25 @@ const faqData = [
 	}
 ]
 
-export { tabsInfoData, tabsData, faqData }
+const extensionsData = [
+	{
+		id: 1,
+		Logo: ChromeLogo,
+		title: 'Chrome',
+		version: '62'
+	},
+	{
+		id: 2,
+		Logo: FirefoxLogo,
+		title: 'Firefox',
+		version: '55'
+	},
+	{
+		id: 3,
+		Logo: OperaLogo,
+		title: 'Opera',
+		version: '46'
+	}
+]
+
+export { tabsInfoData, tabsData, faqData, extensionsData }
