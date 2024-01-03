@@ -1,4 +1,4 @@
-import { Header, Hero, Features } from 'Components'
+import { Header, Hero, Features, Extensions } from 'Components'
 import { FeaturesProvider } from 'Contexts'
 import { Fragment } from 'react'
 
@@ -12,6 +12,7 @@ function App() {
         <FeaturesProvider>
           <Features />
         </FeaturesProvider>
+        <Extensions />
       </main>
     </Fragment>
   )
