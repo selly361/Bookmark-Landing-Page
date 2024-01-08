@@ -29,6 +29,14 @@ button, a {
   border: none;
   cursor: pointer;
   text-decoration: none;
+  background: transparent;
+}
+
+/* Remove default styles on Input Element */
+
+input {
+  outline: none;
+  border: none;
 }
 
 /* Remove list styles on ul, ol elements*/
