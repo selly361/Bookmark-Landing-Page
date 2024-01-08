@@ -1,6 +1,88 @@
 @use 'Styles/utilities' as *;
 
-.faq {
-    padding: 0 32px;
+.FAQ {
+	padding: 0 32px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: max-content;
+	margin-bottom: 150px;
+	gap: 56px;
 
+	&__article {
+		max-width: 540px;
+		text-align: center;
+
+		&__head {
+			margin-bottom: 1rem;
+		}
+	}
+
+	&__list {
+		margin: auto;
+		max-width: 540px;
+		display: flex;
+		flex-direction: column;
+
+		&__item {
+			min-height: 66px;
+			width: 100%;
+			padding: 19px 0;
+			border-bottom: 1px solid rgba(36, 42, 69, 0.1477);
+
+			&:first-child {
+				border-top: 1px solid rgba(36, 42, 69, 0.1477);
+			}
+
+			&__arrow-icon {
+				transition: .5s ease-in-out transform;
+				path {
+					transition: .5s ease-in-out stroke;
+				}
+				&--active {
+					transform: rotate(180deg);
+
+					path {
+						stroke: $red-soft;
+					}
+				}
+			}
+
+			&__question-container {
+				position: relative;
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+
+				color: $blue-dark;
+				text-align: center;
+				font-size: 18px;
+				font-weight: 400;
+				line-height: 32px;
+				padding-right: 24px;
+				transition: .5s ease-in-out color;
+
+				&:hover {
+					color: $red-soft;
+				}
+			}
+
+			&__answer-container {
+				pointer-events: none;
+				height: 0;
+				opacity: 0;
+				transition: opacity 300ms ease-in-out, height 300ms 300ms ease-in-out;
+
+				&--active {
+					pointer-events: all;
+					opacity: 1;
+					transition: height 300ms ease-in-out, opacity 300ms 300ms ease-in-out;
+				}
+			}
+		}
+	}
+
+	&__button {
+		margin: auto;
+	}
 }
